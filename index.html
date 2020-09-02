@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IoThinC Webinar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://use.fontawesome.com/57b4ff74b8.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+</head>
+
+<body onload="load()">
+
+
+
+    <!-- partial:index.partial.html -->
+    <div id="particles-js"></div>
+
+
+    <div class="text">
+        <div id='logou'>
+
+        <button  onclick="logout()" class="butt d-block btn btn-outline-light" style="width:120px;margin-right:5%;margin-left:90%;margin-top:5%;box-shadow: 4px 5px 12px rgba(0,0,0,0.8);">Logout</button>
+    </div>
+
+
+        <div class="row justify-content-center">
+            <img src="iothinc logo whitee.png" style="height: 70px;">
+            <br>
+            <p style="font-family: 'Exo', sans-serif;text-transform: uppercase;padding-top:30px;">&nbsp&nbsp&nbsppresents</p>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="Recruitment.png" style="height: 97%;width: 100%;box-shadow: 8px 10px 12px rgba(0,0,0,0.8);">
+            </div>
+            <h4 class="col-sm-6" id="webinar" style="font-size:23px;text-align:center;margin-top:10%;">
+                
+            <div id="login"  style="margin-left:10%;"> 
+                <h4 id="comment1" style="text-align: center;">Login using</h4>
+                <div id="firebaseui-auth-container" ></div>
+                <div id="loader">Loading...</div>
+                <h6 id="comment">Please connect with your vit email id</h6>
+
+            </div>
+            </h4>
+            <!-- <div class="col-sm-7">
+                <h2>An Introduction to Cloud Computing</h2>
+                <h5>A Webinar by Kishan Kumar</h5>
+            </div> -->
+
+
+
+            <!-- <div id="login"  style="margin-left:10%;"> 
+                <h4 id="comment1" style="text-align: center;">Login using</h4>
+                <div id="firebaseui-auth-container"></div>
+                <div id="loader">Loading...</div>
+                <h6 id="comment">Please connect with your vit email id</h6>
+
+            </div> -->
+
+          
+            
+            <br>
+
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center">
+            <div id="timer">
+                <span id="days"></span>days
+                <span id="hours"></span>hours
+                <span id="minutes"></span>minutes
+                <span id="seconds"></span>seconds
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center">
+            <div class="btn-group mt-2 mb-4" role="group" aria-label="actionButtons" style="box-shadow: 4px 5px 12px rgba(0,0,0,0.8);">
+                <a href="https://www.instagram.com/iothincvit/?hl=en" target="_blank" class="d-block btn btn-outline-light"><i class="fa fa-instagram" aria-hidden="true"></i>&nbspiothincvit</a>
+                <a href="https://www.facebook.com/iothincVIT/" target="_blank" class="d-block btn btn-outline-light">iothincVIT&nbsp<i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- 8oyVlIXc*Qjdrs71cOqR -->
+
+
+    <script>
+
+        $(document).ready(function(){
+                // $('#timer').hide();
+                // $('#login').hide();
+                // $('#logou').hide();
+
+
+        });
+
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+
+// function loadDoc(url,token) {
+//   var xhttp = new XMLHttpRequest();
+//   xhttp.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//     //   document.getElementById("demo").innerHTML =
+//     //   this.responseText;
+
+//     console.log(this.response);
+//     }
+//   };
+//   xhttp.open("GET", url, true);
+//   xhttp.send(token);
+// }
+
+
+
+
+
+
+        
+        // Your web app's Firebase configuration
+        function load() {
+            var firebaseConfig = {
+    apiKey: "AIzaSyDzZnTWIMAFpMXmrT3Y5GyyeA0N9FtatIw",
+    authDomain: "iothincvit-ccs.firebaseapp.com",
+    databaseURL: "https://iothincvit-ccs.firebaseio.com",
+    projectId: "iothincvit-ccs",
+    storageBucket: "iothincvit-ccs.appspot.com",
+    messagingSenderId: "740954689690",
+    appId: "1:740954689690:web:475482e17e5fb3a6c54f23",
+    measurementId: "G-W1D3K92T8H"
+  };
+              //  Initialize Firebase
+              firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+            // Initialize the FirebaseUI Widget using Firebase.
+            var ui = new firebaseui.auth.AuthUI(firebase.auth());
+            ui.start('#firebaseui-auth-container', {
+                callbacks: {
+                    signInSuccessWithAuthResult: function(authResult) {
+
+                        
+                        console.log(authResult);
+                        var email = authResult['user']['email'];
+
+
+                        var name = authResult['user']['displayName'];
+
+                        
+                        console.log(email.search(/vitstudent.ac.in/i));
+                        if(email.search(/vitstudent.ac.in/i) ==-1){
+                            document.getElementById('webinar').textContent= 'Please connect to vit gmail id';
+
+                                location.reload(true);
+                        };
+                        if(email.search(/vitstudent.ac.in/i) !=-1){
+                            var cokn = "email = " + email 
+                        // var cokn = "name= fdsaf; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+                            $('#comment').hide();
+                            $('#comment1').hide();
+
+                        setCookie(cokn,0.5);
+
+                        var idx = name.search(/18B/i);
+                        name = name.slice(0,idx);
+                        console.log(name);
+                        var cokn = "name = " + name 
+                        setCookie(cokn,0.5)
+                        $('#logou').show();
+
+                        $('#timer').show();
+
+                        var result = getCookie('email');
+                        console.log(result);
+                        document.getElementById('webinar').innerHTML= '<p>' +'Hi ' + name + ' <br> Welcome to iothinc' + ' <br> Your interview process starts soon. Stay tuned! </p>';
+                        }
+                        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
+
+                        
+                                
+                                var token;
+      
+                                token = idToken;
+
+      var url =  'https://floating-sea-70008.herokuapp.com/' + 'v1/auth' ;
+
+
+  $.post(url,token,function(data, status){
+    alert("Data: " + data + "\nStatus: " + status);
+  });
+                     }).catch(function (error) {
+                        // Handle error
+                        popup(`OAuth Verification Error ${error}`, "error");
+                        console.log(error)
+                        });
+                        return false;
+                    },
+                    uiShown: function() {
+                        document.getElementById('loader').style.display = 'none';
+                        
+                    }
+                },
+                signInOptions: [
+                    // List of OAuth providers supported.
+                    firebase.auth.GoogleAuthProvider.PROVIDER_ID
+                ],
+                // Other config options...
+            });
+
+        }
+
+
+       
+
+                    function hidden(){
+                        $('#comment').hide();
+                            $('#comment1').hide();
+                    }
+
+                    function setCookie(cokname, exdays) {
+                    var d = new Date();
+                    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                    var expires = "expires="+d.toUTCString();
+                    document.cookie = cokname +  ";" + expires + ";path=/";
+                    }
+
+
+                    function logout(){
+                        cokn = "email= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+                        // $('#logg').show();
+
+                        setCookie(cokn,0.2);
+                        cokn = "name= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+                        setCookie(cokn,0.2);
+
+                        location.reload(true);
+                        $('#timer').hide();
+
+    $('#login').show();
+
+
+                    }
+
+                    function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+// cokn = "email= name; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+
+//                         setCookie(cokn,0.2);
+checkCookie();
+
+function checkCookie() {
+  var user = getCookie("email");
+  console.log(user);
+  if (user != "") {
+    $('#login').hide();
+    $('#comment').hide();
+    // $('#logg').show();
+    $('#logou').show();
+
+
+    $('#comment1').hide();
+
+    var name = getCookie('name');
+    document.getElementById('webinar').innerHTML= '<p>' +'Hi ' + name + ' <br>  Welcome to iothinc' + ' <br> Your interview process starts soon. Stay tuned! </p>';
+
+
+  } else {
+    $('#timer').hide();
+    $('#logou').hide();
+
+    // $('#login').show();
+
+    // user = prompt("Please enter your name:", "");
+    // if (user != "" && user != null) {
+    //   setCookie("username", user, 365);
+    }
+  }
+
+    </script>
+    <!-- partial -->
+    <script src='https://cldup.com/S6Ptkwu_qA.js'></script>
+    <script src="./script.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5f4f0a644704467e89eb7b81/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+
+</html>
